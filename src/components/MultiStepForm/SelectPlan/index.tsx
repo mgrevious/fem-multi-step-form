@@ -34,8 +34,9 @@ const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
     <>
       {" "}
       <div>
-        {planInfo.map((plan) => (
+        {planInfo.map((plan, index) => (
           <PlanType
+            key={index}
             isYearly={isYearly}
             amount={plan.amount}
             name={plan.name}
