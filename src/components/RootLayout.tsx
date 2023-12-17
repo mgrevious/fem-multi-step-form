@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 
 const RootLayout: React.FC = () => {
   return (
-    <div className="mx-[16px] flex justify-center min-h-screen">
+    <div className="flex flex-col justify-between min-h-screen relative">
       <Outlet />
     </div>
   );

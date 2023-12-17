@@ -6,8 +6,6 @@ import AddOns from "./AddOns";
 import Finish from "./Finish";
 import Thanks from "./Thanks";
 
-type StepRange = 1 | 2 | 3 | 4 | 5;
-
 const signUpInfo = [
   {
     header: "Personal Info",
@@ -28,37 +26,67 @@ const signUpInfo = [
 ];
 
 const MultiStepForm: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState<StepRange>(1);
+  const [currentStep, setCurrentStep] = useState(1);
   const [formValid, setFormValid] = useState(false);
+  const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <div className="mt-8 w-full flex flex-col items-center">
-      <Steps currentStep={currentStep} />
-      <div className="bg-white rounded-xl py-8 px-6 mt-8 w-full">
-        {currentStep > 0 && currentStep < 5 ? (
-          <header>
-            <h1 className="text-2xl text-primary font-bold mb-2">
-              {signUpInfo[currentStep - 1].header}
-            </h1>
-          </header>
-        ) : (
-          ""
-        )}
-        <p className="text-light-gray font-light mb-4">
-          {signUpInfo[currentStep - 1].description}
-        </p>
-        {currentStep === 1 && <PersonalInfo />}
-        {currentStep === 2 && <SelectPlan />}
-        {currentStep === 3 && <AddOns />}
-        {currentStep === 4 && <Finish />}
-        {currentStep === 5 && <Thanks />}
+    <>
+      {" "}
+      <div className="mx-[16px]">
+        <div className="mt-8 w-full flex flex-col items-center">
+          <Steps currentStep={currentStep} />
+          <div className="bg-white rounded-xl py-8 px-6 mt-8 w-full">
+            {currentStep > 0 && currentStep < 5 ? (
+              <header>
+                <h1 className="text-2xl text-primary font-bold mb-2">
+                  {signUpInfo[currentStep - 1].header}
+                </h1>
+              </header>
+            ) : (
+              ""
+            )}
+            <p className="text-light-gray font-light mb-4">
+              {signUpInfo[currentStep - 1].description}
+            </p>
+            {currentStep === 1 && <PersonalInfo />}
+            {currentStep === 2 && (
+              <SelectPlan
+                setIsYearly={() => {
+                  setIsYearly(!isYearly);
+                }}
+                isYearly={isYearly}
+              />
+            )}
+            {currentStep === 3 && <AddOns isYearly={isYearly} />}
+            {currentStep === 4 && <Finish isYearly={isYearly} />}
+            {currentStep === 5 && <Thanks />}
+          </div>
+        </div>
       </div>
-      <div className="bg-white fixed bottom-0 left-0 right-0 p-4 flex items-center justify-end">
-        <button className="bg-primary text-white p-4 rounded-md">
+      <div className="bg-white mt-6 w-full p-4 flex items-center justify-between">
+        <button
+          onClick={() => {
+            if (currentStep > 1) {
+              setCurrentStep(currentStep - 1);
+            }
+          }}
+          className="text-light-gray text-sm"
+        >
+          Go Back
+        </button>
+        <button
+          className="bg-primary text-white py-2 px-4 rounded-[4px]"
+          onClick={() => {
+            if (currentStep < 5) {
+              setCurrentStep(currentStep + 1);
+            }
+          }}
+        >
           Next Step
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

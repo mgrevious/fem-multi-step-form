@@ -1,6 +1,10 @@
 import React from "react";
 
-const Finish: React.FC = () => {
+interface Props {
+  isYearly: boolean;
+}
+
+const Finish: React.FC<Props> = ({ isYearly }) => {
   return <div>Finish</div>;
 };
 
