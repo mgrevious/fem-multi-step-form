@@ -1,31 +1,25 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
-import ErrorPage from "./components/ErrorPage";
+import MultiStepForm from "./components/MultiStepForm";
+import RootLayout from "./components/RootLayout";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-    {
-      path: "/",
-      element: <div>Hello world!</div>,
-    },
-  ]);
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />} errorElement={<ErrorBoundary />}>
+        <Route index element={<Navigate to="/signup" replace={true} />} />
+        <Route path="signup" element={<MultiStepForm />} />
+        <Route path="*" element={<Navigate to="/signup" replace={true} />} />
+      </Route>
+    )
+  );
   return <RouterProvider router={router} />;
 }
 
