@@ -1,39 +1,14 @@
 import React, { useState } from "react";
 import Steps from "../Steps";
 import PersonalInfo from "../PersonalInfo";
-import SelectPlan from "../SelectPlan";
-import AddOns from "../AddOns";
-import Finish from "../Finish";
+import SelectPlan from "../../features/plan/SelectPlan";
+import AddOns from "../../features/plan/AddOns";
+import Finish from "../../features/plan/Finish";
 import Thanks from "../Thanks";
-
-const signUpInfo = [
-  {
-    header: "Personal Info",
-    description: "Please provide your name, email address, and phone number.",
-  },
-  {
-    header: "Select Your Plan",
-    description: "You have the option of monthly or yearly billing.",
-  },
-  {
-    header: "Pick add-ons",
-    description: "Add-ons help enhance your gaming experience.",
-  },
-  {
-    header: "Finishing up",
-    description: "Double-check everything looks OK before confirming.",
-  },
-];
+import { signUpInfo } from "../../utils/helpers";
 
 const MultiStepForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formValid, setFormValid] = useState(false);
-  const [isYearly, setIsYearly] = useState(false);
-
-  const toggleYearly = () => {
-    setIsYearly(!isYearly);
-  };
-
   return (
     <>
       {" "}
@@ -54,11 +29,9 @@ const MultiStepForm: React.FC = () => {
               {signUpInfo[currentStep - 1].description}
             </p>
             {currentStep === 1 && <PersonalInfo />}
-            {currentStep === 2 && (
-              <SelectPlan setIsYearly={toggleYearly} isYearly={isYearly} />
-            )}
-            {currentStep === 3 && <AddOns isYearly={isYearly} />}
-            {currentStep === 4 && <Finish isYearly={isYearly} />}
+            {currentStep === 2 && <SelectPlan />}
+            {currentStep === 3 && <AddOns />}
+            {currentStep === 4 && <Finish />}
             {currentStep === 5 && <Thanks />}
           </div>
         </div>

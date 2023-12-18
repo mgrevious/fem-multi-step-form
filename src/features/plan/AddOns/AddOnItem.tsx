@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { setAddOn } from "../plan-slice";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 
 interface Props {
   description: string;
   amount: number;
+  header: string;
   name: string;
-  isYearly: boolean;
 }
 
-const AddOnItem: React.FC<Props> = ({
-  amount,
-  name,
-  description,
-  isYearly,
-}) => {
-  const [isChecked, setIsChecked] = useState(false);
+const AddOnItem: React.FC<Props> = ({ amount, name, description, header }) => {
+  const dispatch = useAppDispatch();
+  const { addOns, isYearly } = useAppSelector((state) => state.plan);
+  const isChecked = addOns[name].checked;
   return (
     <div
       className={`p-4 flex mb-4 border rounded-md w-full ${
@@ -23,20 +22,21 @@ const AddOnItem: React.FC<Props> = ({
       <div className="mr-4 flex items-center">
         <input
           checked={isChecked}
-          id="comments"
-          aria-describedby="comments-description"
-          name="comments"
+          id={name}
+          aria-describedby={`${name}-description`}
+          name={name}
           type="checkbox"
           className="h-4 w-4 rounded border-[#483EFF] text-[#483EFF] focus:ring-[#483EFF]"
-          onChange={() => {
-            setIsChecked(!isChecked);
+          onChange={(e) => {
+            const addOn = e.target.name.replace(" ", "");
+            dispatch(setAddOn({ name: addOn, checked: !isChecked, header }));
           }}
         />
       </div>
       <div className="flex justify-between flex-1">
         <div>
           <h3 className="text-sm text-primary font-semibold text-left">
-            {name}
+            {header}
           </h3>
           <p className="text-xs mt-1 mb-2 text-medium-gray text-left">
             {description}

@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "@headlessui/react";
 import PlanType from "./PlanType";
-import { classNames } from "../../utils/helpers";
-import ArcadeSvg from "../../assets/images/icon-arcade.svg";
-import AdvancedSvg from "../../assets/images/icon-advanced.svg";
-import ProSvg from "../../assets/images/icon-pro.svg";
-
-interface Props {
-  isYearly: boolean;
-  setIsYearly: (isYearly: boolean) => void;
-}
+import { classNames } from "../../../utils/helpers";
+import ArcadeSvg from "../../../assets/images/icon-arcade.svg";
+import AdvancedSvg from "../../../assets/images/icon-advanced.svg";
+import ProSvg from "../../../assets/images/icon-pro.svg";
+import { useAppSelector } from "../../../app/hooks";
 
 const plans = [
   { name: "Arcade", amount: 9, icon: ArcadeSvg },
@@ -17,20 +13,13 @@ const plans = [
   { name: "Pro", amount: 15, icon: ProSvg },
 ];
 
-const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
-  const [selectedPlan, setSelectedPlan] = useState("arcade");
-
+const SelectPlan: React.FC = () => {
+  const isYearly = useAppSelector((state) => state.plan.isYearly);
   return (
     <>
       <div>
         {plans.map((plan, index) => (
           <PlanType
-            setSelected={(name: string) => {
-              const planName = name.toLowerCase();
-              if (planName === plan.name.toLowerCase())
-                setSelectedPlan(planName);
-            }}
-            selected={selectedPlan}
             key={index}
             isYearly={isYearly}
             amount={plan.amount}
@@ -49,7 +38,7 @@ const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
             checked={isYearly}
             onChange={setIsYearly}
             className={classNames(
-              isYearly ? "bg-primary" : "bg-gray-200",
+              !isYearly ? "bg-primary" : "bg-gray-200",
               "relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             )}
           >

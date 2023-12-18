@@ -1,33 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import AddOnItem from "./AddOnItem";
-
-interface Props {
-  isYearly: boolean;
-}
 
 const addOns = [
   {
-    name: "Online service",
+    name: "onlineService",
+    header: "Online service",
     amount: 1,
     description: "Access to multiplayer games",
   },
-  { name: "Larger storage", amount: 2, description: "Extra 1TB of cloud save" },
   {
-    name: "Customizable profile",
+    name: "largerStorage",
+    header: "Larger storage",
+    amount: 2,
+    description: "Extra 1TB of cloud save",
+  },
+  {
+    name: "customizableProfile",
+    header: "Customizable profile",
     amount: 2,
     description: "Custom theme on your profile",
   },
 ];
 
-const AddOns: React.FC<Props> = ({ isYearly }) => (
+const AddOns: React.FC = () => (
   <>
     <div>
       {addOns.map((plan, index) => (
         <AddOnItem
           key={index}
-          isYearly={isYearly}
           amount={plan.amount}
           name={plan.name}
+          header={plan.header}
           description={plan.description}
         />
       ))}
