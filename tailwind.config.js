@@ -10,6 +10,7 @@ export default {
         primary: "#022959",
         "medium-gray": "#9699AA",
         "light-gray": "#F8F9FF",
+        "deep-purple": "#483EFF",
       },
       fontFamily: {
         sans: ['"Ubuntu"', ...theme.fontFamily.sans],

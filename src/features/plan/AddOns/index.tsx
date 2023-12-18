@@ -1,26 +1,6 @@
 import React from "react";
 import AddOnItem from "./AddOnItem";
-
-const addOns = [
-  {
-    name: "onlineService",
-    header: "Online service",
-    amount: 1,
-    description: "Access to multiplayer games",
-  },
-  {
-    name: "largerStorage",
-    header: "Larger storage",
-    amount: 2,
-    description: "Extra 1TB of cloud save",
-  },
-  {
-    name: "customizableProfile",
-    header: "Customizable profile",
-    amount: 2,
-    description: "Custom theme on your profile",
-  },
-];
+import { addOns } from "../../../utils/helpers";
 
 const AddOns: React.FC = () => (
   <>

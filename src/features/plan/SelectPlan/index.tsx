@@ -1,20 +1,13 @@
 import React from "react";
 import { Switch } from "@headlessui/react";
 import PlanType from "./PlanType";
-import { classNames } from "../../../utils/helpers";
-import ArcadeSvg from "../../../assets/images/icon-arcade.svg";
-import AdvancedSvg from "../../../assets/images/icon-advanced.svg";
-import ProSvg from "../../../assets/images/icon-pro.svg";
-import { useAppSelector } from "../../../app/hooks";
-
-const plans = [
-  { name: "Arcade", amount: 9, icon: ArcadeSvg },
-  { name: "Advanced", amount: 12, icon: AdvancedSvg },
-  { name: "Pro", amount: 15, icon: ProSvg },
-];
+import { classNames, plans } from "../../../utils/helpers";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { toggleYearly } from "../plan-slice";
 
 const SelectPlan: React.FC = () => {
   const isYearly = useAppSelector((state) => state.plan.isYearly);
+  const dispatch = useAppDispatch();
   return (
     <>
       <div>
@@ -36,11 +29,8 @@ const SelectPlan: React.FC = () => {
           {" "}
           <Switch
             checked={isYearly}
-            onChange={setIsYearly}
-            className={classNames(
-              !isYearly ? "bg-primary" : "bg-gray-200",
-              "relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-            )}
+            onChange={() => dispatch(toggleYearly())}
+            className="bg-primary relative inline-flex h-5 w-10 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             <span className="sr-only">Use setting</span>
             <span

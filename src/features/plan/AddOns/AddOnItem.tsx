@@ -16,7 +16,7 @@ const AddOnItem: React.FC<Props> = ({ amount, name, description, header }) => {
   return (
     <div
       className={`p-4 flex mb-4 border rounded-md w-full ${
-        isChecked ? "bg-light-gray border-[#483EFF]" : "border-gray-300"
+        isChecked ? "bg-light-gray border-deep-purple" : "border-gray-300"
       }`}
     >
       <div className="mr-4 flex items-center">
@@ -26,10 +26,12 @@ const AddOnItem: React.FC<Props> = ({ amount, name, description, header }) => {
           aria-describedby={`${name}-description`}
           name={name}
           type="checkbox"
-          className="h-4 w-4 rounded border-[#483EFF] text-[#483EFF] focus:ring-[#483EFF]"
+          className="h-4 w-4 rounded border-deep-purple text-deep-purple focus:ring-deep-purple"
           onChange={(e) => {
             const addOn = e.target.name.replace(" ", "");
-            dispatch(setAddOn({ name: addOn, checked: !isChecked, header }));
+            dispatch(
+              setAddOn({ name: addOn, checked: !isChecked, header, amount })
+            );
           }}
         />
       </div>
