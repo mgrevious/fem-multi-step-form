@@ -9,7 +9,7 @@ const PersonalInfo: React.FC = () => {
         </label>
         <input
           type="text"
-          className="border border-gray-300 text-light-gray rounded-[4px] p-2"
+          className="border border-gray-300 text-medium-gray rounded-[4px] p-2"
           placeholder="e.g. Stephen King"
           name="name"
         />
@@ -20,7 +20,7 @@ const PersonalInfo: React.FC = () => {
         </label>
         <input
           type="text"
-          className="border border-gray-300 text-light-gray rounded-[4px] p-2"
+          className="border border-gray-300 text-medium-gray rounded-[4px] p-2"
           placeholder="e.g. stephen-king@lorem.com"
           name="email"
         />
@@ -31,7 +31,7 @@ const PersonalInfo: React.FC = () => {
         </label>
         <input
           type="text"
-          className="border border-gray-300 text-light-gray rounded-[4px] p-2"
+          className="border border-gray-300 text-medium-gray rounded-[4px] p-2"
           placeholder="e.g. +1 234 567 890"
           name="phone"
         />

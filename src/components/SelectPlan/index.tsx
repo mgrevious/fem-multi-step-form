@@ -1,41 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch } from "@headlessui/react";
 import PlanType from "./PlanType";
-import { classNames } from "../../../utils/helpers";
-import ArcadeSvg from "../../../assets/images/icon-arcade.svg";
-import AdvancedSvg from "../../../assets/images/icon-advanced.svg";
-import ProSvg from "../../../assets/images/icon-pro.svg";
+import { classNames } from "../../utils/helpers";
+import ArcadeSvg from "../../assets/images/icon-arcade.svg";
+import AdvancedSvg from "../../assets/images/icon-advanced.svg";
+import ProSvg from "../../assets/images/icon-pro.svg";
 
 interface Props {
   isYearly: boolean;
   setIsYearly: (isYearly: boolean) => void;
 }
 
-const planInfo = [
-  {
-    name: "Arcade",
-    amount: 9,
-    icon: ArcadeSvg,
-  },
-  {
-    name: "Advanced",
-    amount: 12,
-    icon: AdvancedSvg,
-  },
-  {
-    name: "Pro",
-    amount: 15,
-    icon: ProSvg,
-  },
+const plans = [
+  { name: "Arcade", amount: 9, icon: ArcadeSvg },
+  { name: "Advanced", amount: 12, icon: AdvancedSvg },
+  { name: "Pro", amount: 15, icon: ProSvg },
 ];
 
 const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
+  const [selectedPlan, setSelectedPlan] = useState("arcade");
+
   return (
     <>
-      {" "}
       <div>
-        {planInfo.map((plan, index) => (
+        {plans.map((plan, index) => (
           <PlanType
+            setSelected={(name: string) => {
+              const planName = name.toLowerCase();
+              if (planName === plan.name.toLowerCase())
+                setSelectedPlan(planName);
+            }}
+            selected={selectedPlan}
             key={index}
             isYearly={isYearly}
             amount={plan.amount}
@@ -44,8 +39,8 @@ const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
           />
         ))}
       </div>
-      <div className="mt-8 bg-[#F8F9FF] rounded-md p-4 flex">
-        <div className="flex-1 flex justify-center text-sm text-primary">
+      <div className="mt-8 bg-light-gray rounded-md p-4 flex">
+        <div className="flex-1 flex justify-center text-sm text-primary font-[500]">
           Monthly
         </div>
         <div className="flex-1 flex justify-center">
@@ -68,7 +63,7 @@ const SelectPlan: React.FC<Props> = ({ isYearly, setIsYearly }) => {
             />
           </Switch>
         </div>
-        <div className="flex-1 flex justify-center text-sm text-light-gray">
+        <div className="flex-1 flex justify-center text-sm text-medium-gray">
           Yearly
         </div>
       </div>

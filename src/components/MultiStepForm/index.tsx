@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Steps from "./Steps";
-import PersonalInfo from "./PersonalInfo";
-import SelectPlan from "./SelectPlan";
-import AddOns from "./AddOns";
-import Finish from "./Finish";
-import Thanks from "./Thanks";
+import Steps from "../Steps";
+import PersonalInfo from "../PersonalInfo";
+import SelectPlan from "../SelectPlan";
+import AddOns from "../AddOns";
+import Finish from "../Finish";
+import Thanks from "../Thanks";
 
 const signUpInfo = [
   {
@@ -30,6 +30,10 @@ const MultiStepForm: React.FC = () => {
   const [formValid, setFormValid] = useState(false);
   const [isYearly, setIsYearly] = useState(false);
 
+  const toggleYearly = () => {
+    setIsYearly(!isYearly);
+  };
+
   return (
     <>
       {" "}
@@ -46,17 +50,12 @@ const MultiStepForm: React.FC = () => {
             ) : (
               ""
             )}
-            <p className="text-light-gray font-light mb-4">
+            <p className="text-medium-gray font-light mb-6">
               {signUpInfo[currentStep - 1].description}
             </p>
             {currentStep === 1 && <PersonalInfo />}
             {currentStep === 2 && (
-              <SelectPlan
-                setIsYearly={() => {
-                  setIsYearly(!isYearly);
-                }}
-                isYearly={isYearly}
-              />
+              <SelectPlan setIsYearly={toggleYearly} isYearly={isYearly} />
             )}
             {currentStep === 3 && <AddOns isYearly={isYearly} />}
             {currentStep === 4 && <Finish isYearly={isYearly} />}
@@ -76,7 +75,7 @@ const MultiStepForm: React.FC = () => {
                 setCurrentStep(currentStep - 1);
               }
             }}
-            className="text-light-gray text-sm"
+            className="text-medium-gray text-sm"
           >
             Go Back
           </button>
