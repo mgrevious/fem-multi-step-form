@@ -11,4 +11,13 @@ body {
     background-image: none;
     background-size: auto;
   }
+
+  .bg-sidebar-desktop {
+    @media (min-width: 1024px) {
+      background-image: url("./assets/images/bg-sidebar-desktop.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 568px;
+    }
+  }
 }
