@@ -4,12 +4,13 @@ import PlanType from "./PlanType";
 import { classNames, plans } from "../../../utils/helpers";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { toggleYearly } from "../plan-slice";
+import ButtonNav from "../../../components/ButtonNav";
 
 const SelectPlan: React.FC = () => {
   const isYearly = useAppSelector((state) => state.plan.isYearly);
   const dispatch = useAppDispatch();
   return (
-    <>
+    <div>
       <div>
         {plans.map((plan, index) => (
           <PlanType
@@ -22,7 +23,11 @@ const SelectPlan: React.FC = () => {
         ))}
       </div>
       <div className="mt-8 bg-light-gray rounded-md p-4 flex">
-        <div className="flex-1 flex justify-center text-sm text-primary font-[500]">
+        <div
+          className={`flex-1 flex justify-center text-sm ${
+            !isYearly ? "text-primary" : "text-medium-gray"
+          } font-[500]`}
+        >
           Monthly
         </div>
         <div className="flex-1 flex justify-center">
@@ -42,11 +47,16 @@ const SelectPlan: React.FC = () => {
             />
           </Switch>
         </div>
-        <div className="flex-1 flex justify-center text-sm text-medium-gray">
+        <div
+          className={`flex-1 flex justify-center text-sm font-[500] ${
+            isYearly ? "text-primary" : "text-medium-gray"
+          }`}
+        >
           Yearly
         </div>
       </div>
-    </>
+      <ButtonNav />
+    </div>
   );
 };
 

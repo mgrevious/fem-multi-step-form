@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../app/hooks";
+import ButtonNav from "../../components/ButtonNav";
 
 interface Props {
   planTotal: number;
@@ -11,7 +12,7 @@ const Finish: React.FC<Props> = ({ planTotal }) => {
   );
 
   return (
-    <>
+    <div>
       <div className="flex flex-col p-4 rounded-md mb-4 bg-light-gray">
         <div className="flex items-center justify-between border-b border-medium-gray mb-4">
           <div className="flex flex-col items-start mb-3">
@@ -19,7 +20,9 @@ const Finish: React.FC<Props> = ({ planTotal }) => {
               {" "}
               {name} {isYearly ? "Yearly" : "Monthly"}
             </span>
-            <button className="underline text-medium-gray">Change</button>
+            <button className="underline text-medium-gray hover:text-deep-purple">
+              Change
+            </button>
           </div>
           <div className="text-primary">
             ${isYearly ? `${amount * 10}/yr` : `${amount}/mo`}
@@ -45,7 +48,8 @@ const Finish: React.FC<Props> = ({ planTotal }) => {
           +{planTotal}/{isYearly ? "yr" : "mo"}
         </span>
       </div>
-    </>
+      <ButtonNav />
+    </div>
   );
 };
 

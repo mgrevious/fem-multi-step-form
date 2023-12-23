@@ -9,7 +9,7 @@ interface Step {
   label: string;
 }
 
-const MobileSteps: React.FC<Props> = ({ currentStep }) => {
+const Steps: React.FC<Props> = ({ currentStep }) => {
   const renderSteps = () =>
     [
       { stepNum: 1, label: "your info" },
@@ -17,7 +17,7 @@ const MobileSteps: React.FC<Props> = ({ currentStep }) => {
       { stepNum: 3, label: "add-ons" },
       { stepNum: 4, label: "summary" },
     ].map((step: Step, index) => (
-      <div className="lg:flex">
+      <div className="lg:flex" key={index}>
         {" "}
         <span
           key={index}
@@ -41,7 +41,7 @@ const MobileSteps: React.FC<Props> = ({ currentStep }) => {
     ));
 
   return (
-    <div className="absolute -top-16 left-0 right-0 flex justify-center lg:static lg:flex-col lg:justify-normal">
+    <div className="absolute -top-24 left-0 right-0 flex justify-center lg:static lg:flex-col lg:justify-normal lg:py-0 py-8">
       {" "}
       <div className="flex justify-between lg:flex-col lg:justify-normal gap-5">
         {renderSteps()}
@@ -50,4 +50,4 @@ const MobileSteps: React.FC<Props> = ({ currentStep }) => {
   );
 };
 
-export default MobileSteps;
+export default Steps;

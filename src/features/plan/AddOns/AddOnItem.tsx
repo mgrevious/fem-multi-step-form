@@ -15,7 +15,7 @@ const AddOnItem: React.FC<Props> = ({ amount, name, description, header }) => {
   const isChecked = addOns[name].checked;
   return (
     <div
-      className={`p-4 flex mb-4 border rounded-md w-full ${
+      className={`p-4 flex mb-4 border rounded-md w-full hover:border-deep-purple ${
         isChecked ? "bg-light-gray border-deep-purple" : "border-gray-300"
       }`}
     >

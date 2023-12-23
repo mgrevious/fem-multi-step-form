@@ -11,6 +11,7 @@ export default {
         "medium-gray": "#9699AA",
         "light-gray": "#F8F9FF",
         "deep-purple": "#483EFF",
+        "pale-purple": "#928CFF",
       },
       fontFamily: {
         sans: ['"Ubuntu"', ...theme.fontFamily.sans],

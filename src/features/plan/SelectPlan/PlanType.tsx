@@ -21,7 +21,7 @@ const PlanType: React.FC<Props> = ({ amount, name, icon, isYearly }) => {
         }
       }}
       name={name}
-      className={`p-4 flex mb-4 border rounded-md w-full ${
+      className={`p-4 flex mb-4 border rounded-md w-full hover:border-deep-purple ${
         selectedPlan.name === name
           ? "bg-light-gray border-deep-purple"
           : "border-gray-300"
