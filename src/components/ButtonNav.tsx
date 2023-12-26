@@ -31,7 +31,9 @@ const ButtonNav: React.FC = () => {
             if (currentStep === 3) {
               const totalCost = calculateTotal(selectedPlan);
               setPlanTotal(totalCost);
-            } else if (currentStep > 1 && currentStep < 5) {
+            }
+
+            if (currentStep > 1 && currentStep < 5) {
               setCurrentStep(currentStep + 1);
             }
           }}
