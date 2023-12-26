@@ -14,7 +14,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route
-        path="/fem-multi-step-form" // path="/"
+        path="/" // path="/"
         element={<RootLayout />}
         errorElement={<ErrorBoundary />}
       >
