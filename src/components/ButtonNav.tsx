@@ -28,12 +28,11 @@ const ButtonNav: React.FC = () => {
         <button
           className="bg-primary hover:bg-pale-purple focus:bg-deep-purple text-white py-2 px-4 rounded-[4px]"
           onClick={() => {
-            if (currentStep < 5) {
-              setCurrentStep(currentStep + 1);
-            }
             if (currentStep === 3) {
               const totalCost = calculateTotal(selectedPlan);
               setPlanTotal(totalCost);
+            } else if (currentStep > 1 && currentStep < 5) {
+              setCurrentStep(currentStep + 1);
             }
           }}
         >

@@ -12,6 +12,7 @@ export default {
         "light-gray": "#F8F9FF",
         "deep-purple": "#483EFF",
         "pale-purple": "#928CFF",
+        error: "#EE374A",
       },
       fontFamily: {
         sans: ['"Ubuntu"', ...theme.fontFamily.sans],
