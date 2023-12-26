@@ -25,7 +25,7 @@ const Steps: React.FC<Props> = ({ currentStep }) => {
             currentStep === step.stepNum
               ? "bg-[#BEE2FD] text-primary"
               : "text-white border border-white"
-          } rounded-full h-8 w-8 flex items-center justify-center text-sm lg:mb-3 lg: mr-4`}
+          } rounded-full h-8 w-8 flex items-center justify-center text-sm lg:mb-3 lg:mr-4`}
         >
           {step.stepNum}
         </span>
