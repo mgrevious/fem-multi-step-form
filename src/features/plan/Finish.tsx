@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../app/hooks";
-import ButtonNav from "../../components/ButtonNav";
+import ButtonNav from "./ButtonNav";
 
 interface Props {
   planTotal: number;

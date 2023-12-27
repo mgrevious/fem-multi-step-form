@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Steps from "../Steps";
-import PersonalInfo from "../PersonalInfo";
-import SelectPlan from "../../features/plan/SelectPlan";
-import AddOns from "../../features/plan/AddOns";
-import Finish from "../../features/plan/Finish";
-import Thanks from "../Thanks";
-import AppProvider from "../../context/AppContext";
-import { signUpInfo } from "../../utils/helpers";
+import Steps from "./Steps";
+import PersonalInfo from "./PersonalInfo";
+import SelectPlan from "../features/plan/SelectPlan";
+import AddOns from "../features/plan/AddOns";
+import Finish from "../features/plan/Finish";
+import Thanks from "./Thanks";
+import AppProvider from "../context/AppContext";
+import { signUpInfo } from "../utils/helpers";
 
 const MultiStepForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);

@@ -1,7 +1,7 @@
 import React from "react";
 import AddOnItem from "./AddOnItem";
 import { addOns } from "../../../utils/helpers";
-import ButtonNav from "../../../components/ButtonNav";
+import ButtonNav from "../ButtonNav";
 
 const AddOns: React.FC = () => (
   <div>

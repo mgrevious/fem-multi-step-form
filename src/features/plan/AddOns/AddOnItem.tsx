@@ -26,7 +26,7 @@ const AddOnItem: React.FC<Props> = ({ amount, name, description, header }) => {
           aria-describedby={`${name}-description`}
           name={name}
           type="checkbox"
-          className="h-4 w-4 rounded border-deep-purple text-deep-purple focus:ring-deep-purple"
+          className="h-4 w-4 rounded border-deep-purple text-deep-purple focus:ring-deep-purple hover:cursor-pointer"
           onChange={(e) => {
             const addOn = e.target.name.replace(" ", "");
             dispatch(

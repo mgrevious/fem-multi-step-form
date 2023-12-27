@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { calculateTotal } from "../utils/helpers";
-import { useAppSelector } from "../app/hooks";
-import { AppContext } from "../context/AppContext";
+import { calculateTotal } from "../../utils/helpers";
+import { useAppSelector } from "../../app/hooks";
+import { AppContext } from "../../context/AppContext";
 
 const ButtonNav: React.FC = () => {
   const { currentStep, setCurrentStep, setPlanTotal } = useContext(AppContext);

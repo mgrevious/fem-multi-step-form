@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ButtonNav from "../ButtonNav";
+import ButtonNav from "../../features/plan/ButtonNav";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useHookFormMask } from "use-mask-input";
 import { AppContext } from "../../context/AppContext";
@@ -47,9 +47,9 @@ const PersonalInfo: React.FC = () => {
           type="text"
           className={`border ${
             errors && errors.name
-              ? "border-error"
+              ? "border-error focus:border-error focus:border-2"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
-          } text-medium-gray rounded-[4px] p-2 h-[44px]`}
+          } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. Stephen King"
           {...register("name", {
             required: "Name is required",
@@ -74,9 +74,9 @@ const PersonalInfo: React.FC = () => {
           type="email"
           className={`border ${
             errors && errors.email
-              ? "border-error"
+              ? "border-error focus:border-error focus:border-2"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
-          } text-medium-gray rounded-[4px] p-2 h-[44px]`}
+          } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. stephenking@lorem.com"
           {...register("email", {
             required: "Email is required",
@@ -101,9 +101,9 @@ const PersonalInfo: React.FC = () => {
           type="phone"
           className={`border ${
             errors && errors.phone
-              ? "border-error focus:border-error focus:border-2 focus:outline-error"
+              ? "border-error focus:border-error focus:border-2"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
-          } text-medium-gray rounded-[4px] p-2 h-[44px]`}
+          } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. +1 234 567 890"
           {...registerWithMask("phone", ["+1 999 999 999"], {
             required: "Phone is required",

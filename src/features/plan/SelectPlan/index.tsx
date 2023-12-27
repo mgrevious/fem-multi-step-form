@@ -4,7 +4,7 @@ import PlanType from "./PlanType";
 import { classNames, plans } from "../../../utils/helpers";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { toggleYearly } from "../plan-slice";
-import ButtonNav from "../../../components/ButtonNav";
+import ButtonNav from "../ButtonNav";
 
 const SelectPlan: React.FC = () => {
   const isYearly = useAppSelector((state) => state.plan.isYearly);
