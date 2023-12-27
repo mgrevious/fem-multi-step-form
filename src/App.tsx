@@ -13,10 +13,14 @@ import ErrorBoundary from "./components/ErrorBoundary";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />} errorElement={<ErrorBoundary />}>
-        <Route index element={<Navigate to="/signup" replace={true} />} />
+      <Route
+        path="/fem-multi-step-form"
+        element={<RootLayout />}
+        errorElement={<ErrorBoundary />}
+      >
+        <Route index element={<Navigate to="signup" replace={true} />} />
         <Route path="signup" element={<MultiStepForm />} />
-        <Route path="*" element={<Navigate to="/signup" replace={true} />} />
+        <Route path="*" element={<Navigate to="signup" replace={true} />} />
       </Route>
     )
   );
