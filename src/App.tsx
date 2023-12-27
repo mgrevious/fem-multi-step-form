@@ -18,8 +18,9 @@ function App() {
         element={<RootLayout />}
         errorElement={<ErrorBoundary />}
       >
-        <Route index element={<MultiStepForm />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route index element={<Navigate to="signup" />} />
+        <Route path="signup" element={<MultiStepForm />} />
+        <Route path="*" element={<Navigate to="signup" />} />
       </Route>
     )
   );
