@@ -27,7 +27,7 @@ const MultiStepForm: React.FC = () => {
     >
       <div className="mx-[16px]">
         <div className="mt-24 lg:mt-16 lg:w-3/4 mx-auto">
-          <div className="lg:container bg-white rounded-xl py-8 px-6 lg:px-0 mt-8 mb-32 w-full lg:h-[700px] lg:flex">
+          <div className="lg:container bg-white rounded-xl py-8 px-6 lg:px-0 mt-8 mb-32 w-full lg:h-[600px] lg:flex">
             <div className="bg-sidebar-desktop lg:py-10 lg:px-8 lg:ml-5 lg:flex-initial lg:min-w-[260px]">
               <Steps currentStep={currentStep} />
             </div>
