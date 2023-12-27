@@ -26,7 +26,7 @@ const ButtonNav: React.FC = () => {
           </button>
         )}
         <button
-          className="bg-primary hover:bg-pale-purple focus:bg-deep-purple text-white py-2 px-4 rounded-[4px]"
+          className="bg-primary hover:bg-pale-purple focus:bg-deep-purple text-white h-12 px-6 rounded-[4px]"
           onClick={() => {
             if (currentStep === 3) {
               const totalCost = calculateTotal(selectedPlan);

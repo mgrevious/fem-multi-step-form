@@ -11,7 +11,7 @@ const SelectPlan: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <div>
+      <div className="flex flex-col lg:flex-row lg:gap-5">
         {plans.map((plan, index) => (
           <PlanType
             key={index}

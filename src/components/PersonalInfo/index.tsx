@@ -47,7 +47,7 @@ const PersonalInfo: React.FC = () => {
           type="text"
           className={`border ${
             errors && errors.name
-              ? "border-error focus:border-error focus:border-2"
+              ? "border-error focus:border-error focus:border-2 focus:ring-error"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
           } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. Stephen King"
@@ -74,7 +74,7 @@ const PersonalInfo: React.FC = () => {
           type="email"
           className={`border ${
             errors && errors.email
-              ? "border-error focus:border-error focus:border-2"
+              ? "border-error focus:border-error focus:border-2 focus:ring-error"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
           } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. stephenking@lorem.com"
@@ -101,7 +101,7 @@ const PersonalInfo: React.FC = () => {
           type="phone"
           className={`border ${
             errors && errors.phone
-              ? "border-error focus:border-error focus:border-2"
+              ? "border-error focus:border-error focus:border-2 focus:ring-error"
               : "hover:border-deep-purple border-gray-300 focus:font-bold focus:text-primary"
           } text-medium-gray rounded-[4px] p-2 h-[44px] hover:cursor-pointer`}
           placeholder="e.g. +1 234 567 890"
