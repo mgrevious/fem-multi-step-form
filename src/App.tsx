@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
@@ -11,10 +11,10 @@ import RootLayout from "./components/RootLayout";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route
-        path={import.meta.env.DEV ? "/" : "/fem-multi-step-form"}
+        path={import.meta.env.DEV ? "/*" : "/fem-multi-step-form/*"}
         element={<RootLayout />}
         errorElement={<ErrorBoundary />}
       >
